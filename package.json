@@ -1,0 +1,45 @@
+{
+    "name": "supersharp",
+    "displayName": "Super Sharp (C# extensions)",
+    "description": "Some handy refactoring extensions for C#",
+    "version": "0.1.0",
+    "publisher": "craigthomas",
+    "engines": {
+        "vscode": "^1.18.0"
+    },
+    "categories": [
+        "Other", "Extension Packs"
+    ],
+    "icon": "",
+    "keywords": [
+        "C#", "CSharp", "Refactoring", "Refactor", "Move class", "Move interface"
+    ],
+    "activationEvents": [
+        "onLanguage:csharp",
+        "onCommand:supersharp.moveTypeToFile"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [{
+            "command": "supersharp.moveTypeToFile",
+            "title": "Move type to file"
+        }]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    },
+    "dependencies": {
+        "find-parent-dir": "^0.3.0",
+        "find-up-glob": "^1.0.0"
+    }
+}
