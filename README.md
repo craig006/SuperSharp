@@ -1,13 +1,11 @@
 # Super Sharp
 ## Provides some missing refactoring features for C#
 
-## Whats new
-Add constructor injected dependencies from anywhere inside a class. For this version, make sure your class has a constructor.  
-![](https://github.com/craig006/SuperSharp/raw/master/demo/demoInjecttion.gif)
+## Whats new  
+Add constructor injected dependencies from anywhere inside a class. The refactor is only available when the cursor is inside a class that contains a constructor.  
+![](https://github.com/craig006/SuperSharp/raw/master/demo/demoInjection.gif)
 
 ## Features
-
-First release only contains one command:
 
 Move class | enum | interface | struct to new file.
 

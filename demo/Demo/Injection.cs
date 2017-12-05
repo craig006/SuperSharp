@@ -2,15 +2,11 @@ namespace World.Injection
 {
     public class DocumentExaminer
     {
-
-        private readonly IDocumentParser _screenReader;
-
         private readonly IDocumetReader _documetReader;
 
-        public DocumentExaminer(IDocumentParser screenReader, IDocumetReader documetReader)
+        public DocumentExaminer(IDocumetReader documetReader)
         {
             _documetReader = documetReader;
-            _screenReader = screenReader;
 
         }
 

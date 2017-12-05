@@ -4,6 +4,7 @@ import { utils } from '../utils'
 import DocumentElement from './DocumentElement'
 import TypeElement from './TypeElement'
 import { TextEdit } from 'vscode';
+import { sep } from 'path';
 
 
 export default class ConstructorElement extends DocumentElement {
@@ -30,6 +31,12 @@ export default class ConstructorElement extends DocumentElement {
         var position = this.convertIndexInRangeToPosition(lastBracketPosition, this.range);
         return new vscode.Position(position.line + 1, position.character);
     };
+
+    get hasParameters(): boolean {
+        var constructorText = this.document.getText(this.range);
+        var match = this.declarationPatternWithOpeningBracee.exec(constructorText);
+        return match[2] != null;
+    }
 
     public static fromCSType(type: TypeElement) : ConstructorElement {
         
@@ -67,9 +74,15 @@ export default class ConstructorElement extends DocumentElement {
         if(parameterType.startsWith("I") && parameterType.charAt(1).toLocaleUpperCase() == parameterType.charAt(1)) {
             parameterNameBase = parameterType.slice(1)       
         }
+
+        var seperator = "";
+
+        if(this.hasParameters) {
+            seperator = ", ";
+        }
      
         var parameterName = parameterNameBase.charAt(0).toLowerCase() + parameterNameBase.slice(1);
-        var parameterDeclaration = ", " + parameterType + " " + parameterName;
+        var parameterDeclaration = seperator + parameterType + " " + parameterName;
         var fieldDeclaration = "private readonly " + parameterType + " _" + parameterName + ";\n\n";
         var fieldAssignment = "_" + parameterName + " = " + parameterName + ";\n";
         
