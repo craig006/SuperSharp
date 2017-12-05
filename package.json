@@ -2,7 +2,7 @@
     "name": "supersharp",
     "displayName": "Super Sharp (C# extensions)",
     "description": "Some handy refactoring extensions for C#",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "publisher": "craigthomas",
     "engines": {
         "vscode": "^1.18.0"
@@ -10,7 +10,7 @@
     "categories": [
         "Other", "Extension Packs"
     ],
-    "icon": "",
+    "icon": "icon.png",
     "keywords": [
         "C#", "CSharp", "Refactoring", "Refactor", "Move class", "Move interface"
     ],
@@ -23,6 +23,9 @@
         "commands": [{
             "command": "supersharp.moveTypeToFile",
             "title": "Move type to file"
+        }, {
+            "command": "supersharp.injectDependency",
+            "title": "Add dependency to constructor..."
         }]
     },
     "scripts": {
@@ -37,9 +40,5 @@
         "vscode": "^1.1.6",
         "@types/node": "^7.0.43",
         "@types/mocha": "^2.2.42"
-    },
-    "dependencies": {
-        "find-parent-dir": "^0.3.0",
-        "find-up-glob": "^1.0.0"
     }
 }
