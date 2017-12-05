@@ -6,5 +6,6 @@ src/**
 .gitignore
 tsconfig.json
 vsc-extension-quickstart.md
-design/**
+design
+demo
 .git
