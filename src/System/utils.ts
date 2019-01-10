@@ -47,7 +47,7 @@ export module utils {
         public static Pick() : Thenable<SymbolInformation> {
             var promise = new Promise<SymbolInformation>((resolve, reject) => {
                 var options = new SymbolSearchInputOptions()
-                options.prompt = "Serch for the type you would like to import"
+                options.prompt = "Search for the type you would like to import"
                 options.placeHolder = "e.g. service"
                 window.showInputBox(options).then(value => {
                     
